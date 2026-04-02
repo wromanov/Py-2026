@@ -130,3 +130,32 @@ print("Python123".isalnum())      # True (letras e números)
 print("Python".isalpha())         # True (só letras)
 print("123".isdigit())            # True (só dígitos)
 print("   ".isspace())            # True (só espaços)
+
+#Métodos específicos para Strings
+
+# startswith() - começa com
+print(texto.startswith("Py"))     # True
+print(texto.startswith("Java"))   # False
+
+# endswith() - termina com
+print(texto.endswith("ing"))      # True
+print(texto.endswith("python"))   # False
+
+# find() - encontra posição (retorna -1 se não encontrar)
+print(texto.find("Pro"))          # 7
+print(texto.find("Java"))         # -1
+
+# index() - igual find, mas gera erro se não encontrar
+print(texto.index("Pro"))         # 7
+# print(texto.index("Java"))      # ValueError!
+
+# count() - conta ocorrências
+print(texto.count("p"))           # 2 (Python tem 'P' maiúsculo e 'p' minúsculo)
+print(texto.lower().count("p"))   # 3 (convertendo tudo para minúsculo)
+
+# isalpha(), isdigit(), isalnum(), etc.
+print("Python123".isalnum())      # True (letras e números)
+print("Python".isalpha())         # True (só letras)
+print("123".isdigit())            # True (só dígitos)
+print("   ".isspace())            # True (só espaços)
+
