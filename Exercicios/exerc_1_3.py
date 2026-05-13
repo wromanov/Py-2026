@@ -16,9 +16,10 @@ def remover_item(item, lista):
 
 
 def exibir_lista(lista):
-    for item in lista:
-        chave, valor = item
-        print(f'Item: {chave} - Quantidade: {valor}')
+    print('Opção: Ver lista')
+    for chave, valor in lista_compras.items():
+        print(f' Item: {chave} - Quantidade: {valor}.')
+    print('\n')
 
 
 def exibir_menu():
@@ -75,10 +76,7 @@ while True:
 
         case 3:
 
-            print('Opção: Ver lista')
-            for chave, valor in lista_compras.items():
-                print(f' Item: {chave} - Quantidade: {valor}.')
-            print('\n')
+            exibir_lista(lista_compras)
 
         case 4:
 
