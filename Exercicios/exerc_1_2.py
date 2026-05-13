@@ -17,7 +17,7 @@
 # "Maçã" e "maçã" devem ser considerados o mesmo item.
 
 
-lista_compras = []
+lista_compras = {}
 
 while True:
     print('\n*-- App Lista de Compras --**')
@@ -40,34 +40,36 @@ while True:
         case 1:
 
             print('Opção 1: Adicionar Item')
-            item = input('Informe o nome do item que deseja adicionar: ').capitalize().strip()
-            lista_compras.append(item)
+            item_chave = input('Informe o nome do item que deseja adicionar: ').capitalize().strip()
+            item_valor = input('Informe a quantidade de items que deseja adicionar: ')
+            lista_compras.setdefault(item_chave, item_valor)
+            print(f'Item {item_chave} adicionado na lista com sucesso .')
 
         case 2:
 
             print('Opção 2: Remover Item\n')
-            print('Lista de Compras')
-            print(lista_compras)
+            print('***Lista de Compras!***')
 
-            item_remover = input('Informe o nome do item que deseja remover: ').capitalize().strip()
+            if not lista_compras:
+                print('A Lista de compras está vazia!')
 
-            if item_remover in lista_compras:
-                item_indice = lista_compras.index(item_remover)
-                item_removido = lista_compras.pop(item_indice)
+            elif lista_compras:
+                print(lista_compras)
+                item_chave_remover = input('Informe o nome do item que deseja remover: ').capitalize().strip()
 
-                print(f'O item: {item_removido}, foi removido da lista.')
+                if item_chave_remover not in lista_compras:
+                    print('O item não está contido na lista de compras!')
 
-                print('\n')
-
-            else:
-                print(f'O item: {item_remover}, não foi encontrado na lista.')
-                print('\n')
+                else:
+                    item_removido = lista_compras.pop(item_chave_remover)
+                    print(f'Item removido {item_removido} da lista de compras!.')
+                    print(lista_compras)
 
         case 3:
 
             print('Opção: Ver lista')
-            for a, i in enumerate(lista_compras):
-                print(f' Item {a}: {i}')
+            for chave, valor in lista_compras.items():
+                print(f' Item: {chave} - Quantidade: {valor}.')
             print('\n')
 
         case 4:

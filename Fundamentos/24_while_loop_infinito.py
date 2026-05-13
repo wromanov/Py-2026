@@ -4,9 +4,12 @@ Sempre que for usar o comando while, lembre-se de ter certeza que o programa vai
 ### Exemplo
 Digamos que temos uma lista de vendedores e as quantidades vendidas e queremos identificar todos os vendedores que bateram a meta de 50 vendas.
 """
+from math import trunc
 
 vendas = [941, 852, 783, 714, 697, 686, 685, 670, 631, 453, 386, 371, 294, 269, 259, 218, 208, 163, 125, 102, 87, 47, 7]
-vendedores = ['Maria', 'José', 'Antônio', 'João', 'Francisco', 'Ana', 'Luiz', 'Paulo', 'Carlos', 'Manoel', 'Pedro', 'Francisca', 'Marcos', 'Raimundo', 'Sebastião', 'Antônia', 'Marcelo', 'Jorge', 'Márcia', 'Geraldo', 'Adriana', 'Sandra', 'Luis']
+vendedores = ['Maria', 'José', 'Antônio', 'João', 'Francisco', 'Ana', 'Luiz', 'Paulo', 'Carlos', 'Manoel', 'Pedro',
+              'Francisca', 'Marcos', 'Raimundo', 'Sebastião', 'Antônia', 'Marcelo', 'Jorge', 'Márcia', 'Geraldo',
+              'Adriana', 'Sandra', 'Luis']
 meta = 50
 
 i = 0
@@ -14,3 +17,13 @@ i = 0
 while vendas[i] > meta:
     print('{} bateu a meta. Vendas: {}'.format(vendedores[i], vendas[i]))
     i += 1
+
+sell = []
+# seu código aqui vendas = []
+while True:
+    produto = input('Qual o produto? ')
+    if produto:
+        break
+qtde = int(input('Qual a quantidade? '))
+sell.append([produto, qtde])
+print(sell)
