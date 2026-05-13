@@ -21,18 +21,22 @@ def exibir_lista(lista):
         print(f'Item: {chave} - Quantidade: {valor}')
 
 
+def exibir_menu():
+    print('1 - Adicionar')
+    print('2 - Remover')
+    print('3 - Ver lista')
+    print('4 - Sair')
+
+    return input('Escolha: ')
+
+
 lista_compras = {}
 
 while True:
     print('\n*-- App Lista de Compras --**')
 
     try:
-        opcao = int(input('Opções:\n'
-                          '#1 - Adicionar Item\n'
-                          '#2 - Remover Item\n'
-                          '#3 - Ver lista\n'
-                          '#4 - Sair\n'
-                          'Escolha a opção: '))
+        opcao = int(exibir_menu())
 
     except ValueError:
         print('\nDigite apenas números.')
