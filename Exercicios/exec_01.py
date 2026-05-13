@@ -22,17 +22,31 @@
 lista_compras = []
 
 while True:
-    print('*-- App Lista de Compras --**')
-    opcao = int(input('Opções:\n#1 - Adcionar Item\n#2 - Remover Item\n#3 - Ver lista\n#4 - Sair\nEscolha a opção: '))
+    print('\n*-- App Lista de Compras --**')
+
+    try:
+        opcao = int(input('Opções:\n'
+                          '#1 - Adicionar Item\n'
+                          '#2 - Remover Item\n'
+                          '#3 - Ver lista\n'
+                          '#4 - Sair\n'
+                          'Escolha a opção: '))
+    except ValueError:
+        print('\nDigite apenas números.')
+        # Quebra o fluxo e volta para o while.
+        continue
 
     match opcao:
+
         case 1:
             print('Opção 1: Adicionar Item')
-            item = input('Informe o nome do item que deseja adicionar: ')
+            item = input('Informe o nome do item que deseja adicionar: ').capitalize().strip()
             lista_compras.append(item)
         case 2:
-            print('Opção 2: Remover Item')
-            item_remover = input('Informe o nome que deseja remover: ')
+            print('Opção 2: Remover Item\n')
+            print('Lista de Compras')
+            print(lista_compras)
+            item_remover = input('Informe o nome do item que deseja remover: ').capitalize().strip()
             if item_remover in lista_compras:
                 item_indice = lista_compras.index(item_remover)
                 item_removido = lista_compras.pop(item_indice)
