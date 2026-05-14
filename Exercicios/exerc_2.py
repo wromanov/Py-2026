@@ -1,5 +1,4 @@
 # ## Relatório de vendas
-from traceback import print_tb
 
 # ### Primeira versão do relatório de vendas
 
@@ -19,21 +18,24 @@ from traceback import print_tb
 
 lista_vendas = {}
 
-nome = input("Digite o nome do vendedor: ")
-qtd_venda = int(input("Digite a quantidade de vendas: "))
+while True:
 
-# verifica se já existe na lista
-if nome in lista_vendas:
-    lista_vendas[nome]['total_vendas'] += qtd_venda
-    lista_vendas[nome]['quantidade_vendas'] += 1
+    nome = input("Digite o nome do vendedor ou 'Sair': ").capitalize().strip()
+    if nome == 'Sair':
+        break
+    qtd_venda = int(input("Digite a quantidade de vendas: "))
 
-else:
-    lista_vendas[nome] = {'total_vendas': qtd_venda, 'quantidade_vendas': 1}
+    # verifica se já existe na lista
+    if nome in lista_vendas:
+        #Atualizando Dicionário
+        lista_vendas[nome]['total_vendas'] += qtd_venda
+        lista_vendas[nome]['quantidade_vendas'] += 1
 
-for vendedor, dados in lista_vendas.items():
-    print(f'{vendedor}')
-    print(dados['total_vendas'])
-    print(dados['quantidade_vendas'])
+    else:
+        #Criando Dicionário
+        lista_vendas[nome] = {'total_vendas': qtd_venda, 'quantidade_vendas': 1}
 
-
-
+    for vendedor, dados in lista_vendas.items():
+        print(f'{vendedor}')
+        print(dados['total_vendas'])
+        print(dados['quantidade_vendas'])
