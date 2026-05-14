@@ -273,7 +273,7 @@
 # digitar "João" e "1000" para vendas, o dicionário deve ficar assim:
 #
 # ```python
-# {'João': {'total_vendas': 1000, 'quantidade_vendas': 1}}
+    # {'João': {'total_vendas': 1000, 'quantidade_vendas': 1}}
 # ```
 #
 # Se, após, o usuário digitar "João" e "2000" para vendas, o dicionário deve ficar assim:
