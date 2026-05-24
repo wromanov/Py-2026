@@ -29,5 +29,7 @@ lojas_df = lojas_df[['ID Loja', 'Nome da Loja']]
 
 # Relacionado os dataframes
 vendas_df = vendas_df.merge(produtos_df, on='ID Produto')
+vendas_df = vendas_df.merge(lojas_df, on='ID Loja')
+vendas_df = vendas_df.merge(clientes_df, on='ID Cliente')
 
 print(vendas_df)
