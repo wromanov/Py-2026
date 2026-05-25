@@ -1,6 +1,5 @@
 import pandas as pd
-from pandas._libs import join
-from pandas.tseries import holiday
+import matplotlib.pyplot as plt
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 2000)
@@ -30,6 +29,19 @@ lojas_df = lojas_df[['ID Loja', 'Nome da Loja']]
 # Relacionado os dataframes
 vendas_df = vendas_df.merge(produtos_df, on='ID Produto')
 vendas_df = vendas_df.merge(lojas_df, on='ID Loja')
-vendas_df = vendas_df.merge(clientes_df, on='ID Cliente')
+vendas_df = vendas_df.merge(clientes_df, on='ID Cliente').rename(columns={'E-mail': 'E-mail do Cliente'})
 
 print(vendas_df)
+
+"""
+# Qual cliente que comprou mais vezes?
+
+- Usaremos o método .value_counts() para contar quantas vezes cada valor do Dataframe aparece
+- Usaremos o método .plot() para exibir um gráfico
+"""
+
+frequencia_clientes = vendas_df['E-mail do Cliente'].value_counts()
+print(frequencia_clientes)
+frequencia_clientes[:5].plot(figsize=(15, 5))
+plt.show()
+
