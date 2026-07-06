@@ -30,7 +30,7 @@ fila_servico_cabling['Aging'] = (agora - fila_servico_cabling['Data de solicitaÃ
 def verificar_valores_por_quantidade(dataframe, nome_coluna):
     return dataframe[nome_coluna].value_counts()
 
-
+# filtrar tempo de envelhecimento do chamado
 def calcular_aging(fila, tempo):
     return len(fila[fila_servico_cabling['Aging'].dt.days >= tempo])
 
