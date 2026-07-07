@@ -1,3 +1,6 @@
+from random import randint
+
+
 class Agencia:
     def __init__(self, telefone, cnpj, numero):
         self.telefone = telefone
@@ -23,6 +26,27 @@ class Agencia:
         self.clientes.append((nome, cpf, patrimonio))
 
 
+# Criando subclasses (Herança)
+
+class AgenciaVirtual(Agencia):
+    # criando o init da classe
+    def __init__(self, site, telefone, cnpj, numero):
+        # incluindo o init da classe pai na subclasse
+        super().__init__(telefone, cnpj, numero)
+        self.site = site
+        self.caixa = 1000000
+
+
+class AgenciaComum(Agencia):
+    def __init__(self, telefone, cnpj):
+        super().__init__(telefone, cnpj, numero=randint(10000, 99999))
+        self.caixa = 1000000
+
+
+class AgenciaPremium(Agencia):
+    ...
+
+
 # programa
 
 agencia_01 = Agencia(21996932687, 151284, 123456)
@@ -35,3 +59,8 @@ agencia_01.emprestar_dinheiro(1500, 151507, 0.02)
 agencia_01.adicionar_cliente('Walace', 151284, 100000)
 
 print(agencia_01.clientes)
+
+agencia_virtual = AgenciaVirtual('www.sourico.com', 2126991819, 151247, 789456123)
+
+agencia_virtual.verificar_caixa()
+
